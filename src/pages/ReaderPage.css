@@ -1,0 +1,142 @@
+.reader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* Distribute space */
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #1c1c1e; /* Dark mode background */
+  color: #f2f2f7; /* Light text */
+  overflow: hidden; /* Prevent accidental body scrolling */
+}
+
+.back-button {
+  position: absolute; /* Keep it fixed */
+  top: 25px;
+  left: 25px;
+  background: none;
+  border: none;
+  color: #0a84ff; /* System blue */
+  cursor: pointer;
+  font-size: 1rem;
+  z-index: 10; /* Ensure it's above other elements */
+}
+
+.word-display-area {
+  flex-grow: 1; /* Allow this area to grow and shrink */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px; /* Add some top margin */
+  margin-bottom: 20px; /* Space before progress */
+  min-height: 100px; /* Ensure it doesn't collapse */
+}
+
+.current-word {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: clamp(3rem, 10vw, 6rem); /* Responsive font size */
+  font-weight: 400;
+  text-align: center;
+  min-width: 300px;
+  padding: 0 10px; /* Add padding for very long words */
+  /* Optional: Add transition for smoother word changes, though might impact perceived speed */
+  /* transition: opacity 0.1s ease-in-out; */
+}
+
+.progress-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px; /* Space before controls */
+    flex-shrink: 0; /* Prevent this section from shrinking */
+}
+
+.progress-bar-container {
+  width: 80%;
+  max-width: 500px;
+  height: 6px;
+  background-color: #3a3a3c;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #0a84ff;
+  transition: width 0.1s linear;
+}
+
+.progress-text {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: #8e8e93;
+}
+
+.controls-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow controls to wrap on smaller widths */
+  padding: 15px;
+  width: 100%;
+  max-width: 700px;
+  gap: 15px; /* Adjust gap between controls */
+  background-color: #2c2c2e; /* Slightly different background */
+  border-radius: 12px; /* Added border-radius */
+  margin-bottom: 10px; /* Ensure some space at the bottom */
+  flex-shrink: 0; /* Prevent this section from shrinking */
+}
+
+.controls-container button {
+  background: #3a3a3c;
+  border: none;
+  color: #f2f2f7;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.controls-container button:hover:not(:disabled) {
+    background-color: #4a4a4c; /* Subtle hover effect */
+}
+
+.controls-container button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.play-pause-button {
+  font-size: 1.1rem;
+  padding: 10px 20px;
+}
+
+.wpm-slider-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-grow: 1; /* Allow slider to take space */
+  min-width: 200px; /* Prevent slider becoming too small */
+  justify-content: center; /* Center slider elements */
+}
+
+.wpm-slider-container label {
+  min-width: 65px; 
+  text-align: right;
+  font-size: 0.85rem;
+}
+
+.wpm-slider-container input[type="range"] {
+  flex-grow: 1;
+  max-width: 250px; /* Limit slider width */
+  cursor: pointer;
+  height: 6px;
+  accent-color: #0a84ff; /* Style slider thumb/track */
+}
+
+/* TODO: Add styles for focal point highlighting */ 
