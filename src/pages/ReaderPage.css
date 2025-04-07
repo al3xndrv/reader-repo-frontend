@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: space-between; /* Distribute space */
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   padding: 20px;
   box-sizing: border-box;
   background-color: #1c1c1e; /* Dark mode background */
@@ -12,16 +12,34 @@
   overflow: hidden; /* Prevent accidental body scrolling */
 }
 
+.reader-content {
+  width: 100%;
+  max-width: 850px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .back-button {
   position: absolute; /* Keep it fixed */
   top: 25px;
   left: 25px;
-  background: none;
-  border: none;
+  background: rgba(10, 132, 255, 0.1);
+  border: 1px solid rgba(10, 132, 255, 0.3);
   color: #0a84ff; /* System blue */
   cursor: pointer;
   font-size: 1rem;
   z-index: 10; /* Ensure it's above other elements */
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  background: rgba(10, 132, 255, 0.2);
 }
 
 .word-display-area {
@@ -87,7 +105,7 @@
   gap: 15px; /* Adjust gap between controls */
   background-color: #2c2c2e; /* Slightly different background */
   border-radius: 12px; /* Added border-radius */
-  margin-bottom: 10px; /* Ensure some space at the bottom */
+  margin-bottom: 20px; /* Ensure some space at the bottom */
   flex-shrink: 0; /* Prevent this section from shrinking */
 }
 
@@ -139,4 +157,23 @@
   accent-color: #0a84ff; /* Style slider thumb/track */
 }
 
-/* TODO: Add styles for focal point highlighting */ 
+/* TODO: Add styles for focal point highlighting */
+
+/* Media queries for better responsiveness */
+@media (max-width: 600px) {
+  .back-button {
+    top: 15px;
+    left: 15px;
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+  
+  .current-word {
+    font-size: clamp(2rem, 8vw, 4rem);
+  }
+  
+  .controls-container {
+    padding: 10px;
+    gap: 10px;
+  }
+} 

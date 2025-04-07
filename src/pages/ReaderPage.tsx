@@ -147,44 +147,46 @@ const ReaderPage: React.FC = () => {
       {/* Back Button */} 
       <button onClick={() => navigate('/library')} className="back-button">← Library</button>
 
-      {/* Word Display Area */}
-      <div className="word-display-area">
-        {/* TODO: Implement focal point highlighting */}
-        <span className="current-word">{currentWord}</span>
-      </div>
-
-      {/* Progress Section - Wrapped */} 
-      <div className="progress-section">
-        <div className="progress-bar-container">
-          <div 
-            className="progress-bar-fill"
-            style={{ width: `${progressPercentage}%` }}
-          ></div>
+      <div className="reader-content">
+        {/* Word Display Area */}
+        <div className="word-display-area">
+          {/* TODO: Implement focal point highlighting */}
+          <span className="current-word">{currentWord}</span>
         </div>
-        <div className="progress-text">
-          {currentWordIndex + 1} / {words.length} words ({progressPercentage.toFixed(1)}%)
-        </div>
-      </div>
 
-      {/* Controls */} 
-      <div className="controls-container">
-        <button onClick={handlePreviousSentence} disabled>‹ Prev</button> {/* TODO */}
-        <button onClick={handlePlayPause} className="play-pause-button">
-          {isPlaying ? '❚❚ Pause' : '► Play'}
-        </button>
-        <button onClick={handleNextSentence} disabled>Next ›</button> {/* TODO */}
-        
-        <div className="wpm-slider-container">
-          <label htmlFor="wpm">{wpm} WPM</label>
-          <input 
-            type="range"
-            id="wpm"
-            min={MIN_WPM}
-            max={MAX_WPM}
-            value={wpm}
-            onChange={handleWpmChange}
-            step="10"
-          />
+        {/* Progress Section - Wrapped */} 
+        <div className="progress-section">
+          <div className="progress-bar-container">
+            <div 
+              className="progress-bar-fill"
+              style={{ width: `${progressPercentage}%` }}
+            ></div>
+          </div>
+          <div className="progress-text">
+            {currentWordIndex + 1} / {words.length} words ({progressPercentage.toFixed(1)}%)
+          </div>
+        </div>
+
+        {/* Controls */} 
+        <div className="controls-container">
+          <button onClick={handlePreviousSentence} disabled>‹ Prev</button>
+          <button onClick={handlePlayPause} className="play-pause-button">
+            {isPlaying ? '❚❚ Pause' : '► Play'}
+          </button>
+          <button onClick={handleNextSentence} disabled>Next ›</button>
+          
+          <div className="wpm-slider-container">
+            <label htmlFor="wpm">{wpm} WPM</label>
+            <input 
+              type="range"
+              id="wpm"
+              min={MIN_WPM}
+              max={MAX_WPM}
+              value={wpm}
+              onChange={handleWpmChange}
+              step="10"
+            />
+          </div>
         </div>
       </div>
     </div>
